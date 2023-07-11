@@ -1,0 +1,74 @@
+
+SQL Insert queries
+
+-------------------------------------------------------------------------------------------------------------
+----CREATING EMPLOYEES TABLE
+create table employees(
+employee_id int,
+employee_name varchar(45),
+Designation varchar(45),
+competency varchar(45),
+primary key(employee_id)
+);
+
+-----Inserting into employees table
+INSERT INTO employees (id, employee_name, Designation, competency) VALUES('3', 'Anupam Gupta', 'software engineer', 'java');
+INSERT INTO employees (id, employee_name, Designation, competency) VALUES('1', 'Samarth', 'software engineer', 'python');
+INSERT INTO employees (id, employee_name, Designation, competency) VALUES('4', 'Naveen Kumar', 'technical lead', 'JVM');
+INSERT INTO employees (id, employee_name, Designation, competency) VALUES('2', 'Vishal arora', 'senior software engineer', '.net');
+---------------------------------------------------------------------------------------------------------------
+
+---CREATING TASKS TABLE
+
+create table tasks(
+Id int,
+date varchar(45),
+task varchar(45),
+working_hours int,
+comment varchar(100),
+employee_id int,
+primary key(Id)
+);
+
+insert into tasks (Id, date, task, working_hours, employee_id, comment) values (1, '01-May-2023', 'development', 8, 1,NULL);
+insert into tasks (Id, date, task, working_hours, employee_id, comment) values(2, '01-May-2023', 'development', 8, 2,NULL);
+insert into tasks (Id, date, task, working_hours, employee_id, comment) values (3, '01-May-2023', NULL, 0, 3,NULL);
+insert into tasks (Id, date, task, working_hours, employee_id, comment) values (4, '01-May-2023', NULL, 0, 4,NULL);
+insert into tasks (Id, date, task, working_hours, employee_id, comment) values (5, '01-May-2023', 'development', 8, 5,NULL);
+----------------------------------------------------------------------------------------------------------------
+CREATING AND INSERTING INTO PROJECT_DETAILS TABLE
+
+create table project_details(
+    -> id int,
+    -> project varchar(45),
+    -> contract varchar(45),
+    -> billing_rate double);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into project_details
+    (id, project, contract, billing_rate)
+    values('1', 'Demo Project', 'Agreement-1', '150000');
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---CREATING TIMESHEET_GENERATION TABLE
+CREATE TABLE timesheet_generation(
+  id INT,
+  start_date VARCHAR(45) NULL,
+  end_date VARCHAR(45) NULL,
+  generation_date VARCHAR(45) NULL,
+  total_days INT NULL,
+  total_hours FLOAT NULL,
+  per_day_billing FLOAT NULL,
+  total_billing_days INT NULL,
+  company_holiday int,
+  adjustment int,
+  project_id INT NOT NULL
+  PRIMARY KEY (id));
+
+
+---Inserting values into timesheet_generation table
+
+insert into timesheet_generation (project_id, start_date, end_date, generation_date, total_days, total_hours, per_day_billing, total_billing_days, company_holiday, adjustment, id)
+values ('1', '1-may-2023', '31-may-2023','12-june-2023', '22', '4116.5', '7894.74', '19', '1', '2', '1');
